@@ -126,18 +126,11 @@ function showNotification(pair, name) {
     "script"
   );
 
-  novu.init(
-    "70HzHf7CIXoM",
-    {
-      unseenBadgeSelector: "#unseen-badge",
-      bellSelector: "#notification-bell",
-    },
-    {
-      subscriberId: pair.subscriberId,
-      email: pair.email,
-      firstName: name,
-    }
-  );
+  novu.init("70HzHf7CIXoM", "#notification-bell", {
+    subscriberId: pair.subscriberId,
+    email: pair.email,
+    firstName: name,
+  });
 }
 
 const ethSubmitButton = document.querySelector(".home-subscribe");
