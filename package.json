@@ -1,0 +1,23 @@
+{
+  "name": "novufin",
+  "version": "1.0.0",
+  "description": "This is the base folder for the NovuFin project specially made for the Novu Connect Hackathon.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Rutam Prita Mishra",
+  "license": "MIT",
+  "dependencies": {
+    "@novu/node": "^0.15.0",
+    "axios": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mime": "^3.0.0",
+    "parcel-bundler": "^1.8.1",
+    "path": "^0.12.7",
+    "winston": "^3.9.0",
+    "ws": "^8.13.0"
+  }
+}

@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NovuFin</title>
+    <meta property="og:title" content="NovuFin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {
+        line-height: 1.15;
+      }
+      body {
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+      }
+      p,
+      li,
+      ul,
+      pre,
+      div,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      figure,
+      blockquote,
+      figcaption {
+        margin: 0;
+        padding: 0;
+      }
+      button {
+        background-color: transparent;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      button,
+      [type="button"],
+      [type="reset"],
+      [type="submit"] {
+        -webkit-appearance: button;
+      }
+      button::-moz-focus-inner,
+      [type="button"]::-moz-focus-inner,
+      [type="reset"]::-moz-focus-inner,
+      [type="submit"]::-moz-focus-inner {
+        border-style: none;
+        padding: 0;
+      }
+      button:-moz-focus,
+      [type="button"]:-moz-focus,
+      [type="reset"]:-moz-focus,
+      [type="submit"]:-moz-focus {
+        outline: 1px dotted ButtonText;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      input {
+        padding: 2px 4px;
+      }
+      img {
+        display: block;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style: normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+      }
+    </style>
+    <link
+      rel="shortcut icon"
+      href="./assets/favicon.png"
+      type="icon/png"
+      sizes="32x32"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div id="overlay">
+      <div id="loading-spinner"></div>
+      <div id="loading-text">NovuFin is processing your subscription...</div>
+    </div>
+    <!-- Popup form -->
+    <div id="popup-overlay" class="popup-overlay"></div>
+    <div id="popup">
+      <h2>Welcome to NovuFin</h2>
+      <h6>Your personal Finance Notifier</h6>
+      <br />
+      <h4>Enter Primary User Details</h4>
+      <form id="popupForm">
+        <input
+          type="text"
+          id="nameInput"
+          placeholder="Enter your First Name"
+          required
+        />
+        <input
+          type="email"
+          id="emailInput"
+          placeholder="Enter your email."
+          required
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div>
+      <link href="./styles/home.css" rel="stylesheet" />
+
+      <div class="home-container">
+        <nav class="navbar-navbar navbar-root-class-name">
+          <img
+            alt="NovuFin"
+            src="./assets/logo.png"
+            class="navbar-branding-logo"
+          />
+          <div class="navbar-nav-content">
+            <div class="navbar-nav-links">
+              <a href="#crypto" class="navbar-link nav-link">Crypto</a>
+              <a href="#stocks" class="navbar-link1 nav-link">Stocks</a>
+              <a
+                href="https://novu.co/"
+                target="_blank"
+                rel="noreferrer noopener"
+                class="navbar-link2 nav-link"
+              >
+                Novu
+              </a>
+              <a
+                href="https://github.com/Rutam21/NovuFin"
+                target="_blank"
+                rel="noreferrer noopener"
+                class="navbar-link3 nav-link"
+              >
+                GitHub
+              </a>
+              <div id="notification-bell">
+                <i style="color: white" class="fa fa-bell"></i>
+                <span id="unseen-badge"></span>
+              </div>
+            </div>
+            <nav id="open-mobile-menu" class="navbar-hamburger get-started">
+              <div id="notification-bells">
+                <i style="color: white" class="fa fa-bell"></i>
+                <span id="unseen-badge"></span>
+              </div>
+            </nav>
+          </div>
+        </nav>
+        <section class="home-section">
+          <div class="home-hero">
+            <div class="home-content">
+              <main class="home-main">
+                <header class="home-header">
+                  <h1 class="home-heading">
+                    <span>The easiest way</span>
+                    <br />
+                    <span>to stay notified of your</span>
+                    <br />
+                    <span>Stocks and Crypto Prices</span>
+                  </h1>
+                  <span class="home-caption">Powered by NOVU</span>
+                </header>
+                <div class="home-buttons">
+                  <a href="#started" class="home-link">
+                    <div class="home-get-started button">
+                      <span class="home-text005">Get started</span>
+                    </div>
+                  </a>
+                </div>
+              </main>
+            </div>
+            <img alt="image" src="./assets/header.png" class="home-image" />
+          </div>
+        </section>
+        <div id="started" class="home-highlight">
+          <h1 id="user" class="home-caption1"></h1>
+        </div>
+        <section class="home-section1">
+          <div class="home-cube">
+            <div class="home-top side"></div>
+            <div class="home-front side"></div>
+            <div class="home-left side"></div>
+          </div>
+        </section>
+        <section class="home-section2">
+          <div class="home-cube1">
+            <div class="home-top1 side"></div>
+            <div class="home-front1 side"></div>
+            <div class="home-left1 side"></div>
+          </div>
+          <main id="crypto" class="home-crypto-pricing">
+            <header class="home-header01">
+              <header class="home-left2">
+                <h2 class="section-heading home-heading1">Crypto Dashboard</h2>
+              </header>
+              <div class="home-right">
+                <p class="home-paragraph section-description">
+                  Monitor the latest Crypto trends for the desired coins
+                  below.&nbsp;
+                </p>
+              </div>
+            </header>
+            <div class="home-crypto-container">
+              <main class="home-crypto-row-1">
+                <div id="crypto-ethereum" class="home-eth">
+                  <div class="home-details">
+                    <div class="home-header02">
+                      <label class="home-name">Ethereum</label>
+                      <div class="home-pricing">
+                        <h1 class="home-price price"></h1>
+                      </div>
+                    </div>
+                    <div class="home-details01">
+                      <div class="home-price01">
+                        <h3 class="home-text008 high">&nbsp;</h3>
+                      </div>
+                      <div class="home-market-cap">
+                        <h3 class="home-text011 low">&nbsp;</h3>
+                      </div>
+                      <div class="home-total-volume">
+                        <h3 class="home-text014 priceChange">&nbsp;</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <input
+                    type="text"
+                    id="EthereumName"
+                    required
+                    placeholder="Your Name Here"
+                    class="home-textinput input"
+                  />
+                  <input
+                    type="email"
+                    id="EthereumInput"
+                    required
+                    placeholder="Your Email Here"
+                    class="home-textinput input"
+                  />
+                  <select
+                    id="EthereumSelect"
+                    required
+                    text-align="center"
+                    class="home-select"
+                  >
+                    <option value="NULL" selected="">
+                      Select Time Interval
+                    </option>
+                    <option value="2">2 minutes</option>
+                    <option value="60">1 Hour</option>
+                    <option value="360">6 Hours</option>
+                    <option value="1440">24 Hours</option>
+                  </select>
+                  <button type="submit" class="home-subscribe">
+                    <div class="home-buy button">
+                      <span class="home-text015">
+                        <span>Subscribe</span>
+                        <br />
+                      </span>
+                    </div>
+                  </button>
+                </div>
+                <div id="crypto-bitcoin" class="home-btc">
+                  <div class="home-details02">
+                    <div class="home-header03">
+                      <label class="home-name01">Bitcoin</label>
+                      <div class="home-pricing01">
+                        <h1 class="home-price02 price"></h1>
+                      </div>
+                    </div>
+                    <div class="home-details03">
+                      <div class="home-price03">
+                        <h3 class="home-text020 high"></h3>
+                      </div>
+                      <div class="home-market-cap01">
+                        <h3 class="home-text023 low"></h3>
+                      </div>
+                      <div class="home-total-volume01">
+                        <h3 class="home-text026 priceChange"></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <input
+                    type="text"
+                    id="BitCoinName"
+                    required
+                    placeholder="Your Name Here"
+                    class="home-textinput input"
+                  />
+                  <input
+                    type="text"
+                    id="BitCoinInput"
+                    required
+                    placeholder="Your Email Here"
+                    class="home-textinput01 input"
+                  />
+                  <select id="BitCoinSelect" required class="home-select01">
+                    <option value="NULL" selected="">
+                      Select Time Interval
+                    </option>
+                    <option value="2">2 minutes</option>
+                    <option value="60">1 Hour</option>
+                    <option value="360">6 Hours</option>
+                    <option value="1440">24 Hours</option>
+                  </select>
+                  <button type="submit" class="home-buy-details">
+                    <div class="home-buy1 button">
+                      <span class="home-text027">
+                        <span>Subscribe</span>
+                        <br />
+                      </span>
+                    </div>
+                  </button>
+                </div>
+                <div id="crypto-dogecoin" class="home-doge">
+                  <div class="home-details04">
+                    <div class="home-header04">
+                      <label class="home-name02">DOGE</label>
+                      <div class="home-pricing02">
+                        <span class="home-price04 price"></span>
+                      </div>
+                    </div>
+                    <div class="home-details05">
+                      <div class="home-price05">
+                        <h3 class="home-text032 high"></h3>
+                      </div>
+                      <div class="home-market-cap02">
+                        <h3 class="home-text035 low"></h3>
+                      </div>
+                      <div class="home-total-volume02">
+                        <h3 class="home-text038 priceChange">&nbsp;Text</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <input
+                    type="text"
+                    id="DogeName"
+                    required
+                    placeholder="Your Name Here"
+                    class="home-textinput input"
+                  />
+                  <input
+                    type="text"
+                    id="DogeInput"
+                    required
+                    placeholder="Your Email Here"
+                    class="home-textinput02 input"
+                  />
+                  <select id="DogeSelect" required class="home-select02">
+                    <option value="NULL" selected="">
+                      Select Time Interval
+                    </option>
+                    <option value="2">2 Minutes</option>
+                    <option value="60">1 Hour</option>
+                    <option value="360">6 Hours</option>
+                    <option value="1440">24 Hours</option>
+                  </select>
+                  <button type="submit" class="home-buy-details1">
+                    <div class="home-buy2 button">
+                      <span class="home-text039">
+                        <span>Subscribe</span>
+                        <br />
+                      </span>
+                    </div>
+                  </button>
+                </div>
+              </main>
+              <main class="home-crypto-row-2">
+                <div id="crypto-solana" class="home-solana">
+                  <div class="home-details06">
+                    <div class="home-header05">
+                      <label class="home-name03">Solana</label>
+                      <div class="home-pricing03">
+                        <h1 class="home-price06 price"></h1>
+                      </div>
+                    </div>
+                    <div class="home-details07">
+                      <div class="home-price07">
+                        <h3 class="home-text044 high"></h3>
+                      </div>
+                      <div class="home-market-cap03">
+                        <h3 class="home-text047 low"></h3>
+                      </div>
+                      <div class="home-total-volume03">
+                        <h3 class="home-text050 priceChange"></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <input
+                    type="text"
+                    id="SolanaName"
+                    required
+                    placeholder="Your Name Here"
+                    class="home-textinput input"
+                  />
+                  <input
+                    type="text"
+                    id="SolanaInput"
+                    required
+                    placeholder="Your Email Here"
+                    class="home-textinput03 input"
+                  />
+                  <select
+                    id="SolanaSelect"
+                    required
+                    text-align="center"
+                    class="home-select03"
+                  >
+                    <option value="NULL" selected="">
+                      Select Time Interval
+                    </option>
+                    <option value="2">2 Minutes</option>
+                    <option value="60">1 Hour</option>
+                    <option value="360">6 Hours</option>
+                    <option value="1440">24 Hours</option>
+                  </select>
+                  <button type="submit" class="home-subscribe1">
+                    <div class="home-buy3 button">
+                      <span class="home-text051">
+                        <span>Subscribe</span>
+                        <br />
+                      </span>
+                    </div>
+                  </button>
+                </div>
+                <div id="crypto-binancecoin" class="home-bnb">
+                  <div class="home-details08">
+                    <div class="home-header06">
+                      <label class="home-name04">Binance Coin BNB</label>
+                      <div class="home-pricing04">
+                        <h1 class="home-price08 price"></h1>
+                      </div>
+                    </div>
+                    <div class="home-details09">
+                      <div class="home-price09">
+                        <h3 class="home-text056 high"></h3>
+                      </div>
+                      <div class="home-market-cap04">
+                        <h3 class="home-text059 low"></h3>
+                      </div>
+                      <div class="home-total-volume04">
+                        <h3 class="home-text062 priceChange"></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <input
+                    type="text"
+                    id="BinanceName"
+                    required
+                    placeholder="Your Name Here"
+                    class="home-textinput input"
+                  />
+                  <input
+                    type="text"
+                    id="BinanceInput"
+                    required
+                    placeholder="Your Email Here"
+                    class="home-textinput04 input"
+                  />
+                  <select id="BinanceSelect" required class="home-select04">
+                    <option value="NULL" selected="">
+                      Select Time Interval
+                    </option>
+                    <option value="2">2 Minutes</option>
+                    <option value="60">1 Hour</option>
+                    <option value="360">6 Hours</option>
+                    <option value="1440">24 Hours</option>
+                  </select>
+                  <button type="submit" class="home-buy-details2">
+                    <div class="home-buy4 button">
+                      <span class="home-text063">
+                        <span>Subscribe</span>
+                        <br />
+                      </span>
+                    </div>
+                  </button>
+                </div>
+                <div id="crypto-aave" class="home-aave">
+                  <div class="home-details10">
+                    <div class="home-header07">
+                      <label class="home-name05">Aave</label>
+                      <div class="home-pricing05">
+                        <span class="home-price10 price"></span>
+                      </div>
+                    </div>
+                    <div class="home-details11">
+                      <div class="home-price11">
+                        <h3 class="home-text068 high"></h3>
+                      </div>
+                      <div class="home-market-cap05">
+                        <h3 class="home-text071 low"></h3>
+                      </div>
+                      <div class="home-total-volume05">
+                        <h3 class="home-text074 priceChange"></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <input
+                    type="text"
+                    id="AaveName"
+                    required
+                    placeholder="Your Name Here"
+                    class="home-textinput input"
+                  />
+                  <input
+                    type="text"
+                    id="AaveInput"
+                    required
+                    placeholder="Your Email Here"
+                    class="home-textinput05 input"
+                  />
+                  <select id="AaveSelect" required class="home-select05">
+                    <option value="NULL" selected="">
+                      Select Time Interval
+                    </option>
+                    <option value="2">2 Minutes</option>
+                    <option value="60">1 Hour</option>
+                    <option value="360">6 Hours</option>
+                    <option value="1440">24 Hours</option>
+                  </select>
+                  <button type="submit" class="home-buy-details3">
+                    <div class="home-buy5 button">
+                      <span class="home-text075">
+                        <span>Subscribe</span>
+                        <br />
+                      </span>
+                    </div>
+                  </button>
+                </div>
+              </main>
+            </div>
+          </main>
+          <main id="stocks" class="home-stocks-pricing">
+            <header class="home-header08">
+              <header class="home-left3">
+                <h2 class="section-heading home-heading2">Stocks Gallery</h2>
+              </header>
+              <div class="home-right1">
+                <p class="home-paragraph1 section-description">
+                  Stay updated with the latest Stock updates on the GO!
+                </p>
+              </div>
+            </header>
+            <div class="home-stocks-container">
+              <main class="home-stocks-row-1">
+                <div id="stock-META" class="home-meta">
+                  <div class="home-details12">
+                    <div class="home-header09">
+                      <label class="home-name06">META</label>
+                      <div class="home-pricing06">
+                        <h1 class="home-price12 price"></h1>
+                      </div>
+                    </div>
+                    <div class="home-details13">
+                      <div class="home-price13">
+                        <h3 class="home-text080 high"></h3>
+                      </div>
+                      <div class="home-market-cap06">
+                        <h3 class="home-text083 low"></h3>
+                      </div>
+                      <div class="home-total-volume06">
+                        <h3 class="home-text086 priceChange"></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <input
+                    type="text"
+                    id="MetaName"
+                    required
+                    placeholder="Your Name Here"
+                    class="home-textinput06 input"
+                  />
+                  <input
+                    type="text"
+                    id="MetaInput"
+                    required
+                    placeholder="Your Email Here"
+                    class="home-textinput06 input"
+                  />
+                  <select
+                    id="MetaSelect"
+                    required
+                    text-align="center"
+                    class="home-select06"
+                  >
+                    <option value="NULL" selected="">
+                      Select Time Interval
+                    </option>
+                    <option value="2">2 Minutes</option>
+                    <option value="60">1 Hour</option>
+                    <option value="360">6 Hours</option>
+                    <option value="1440">24 Hours</option>
+                  </select>
+                  <button type="submit" class="home-subscribe2">
+                    <div class="home-sub button">
+                      <span class="home-text087">
+                        <span>Subscribe</span>
+                        <br />
+                      </span>
+                    </div>
+                  </button>
+                </div>
+                <div id="stock-MSFT" class="home-microsoft">
+                  <div class="home-details14">
+                    <div class="home-header10">
+                      <label class="home-name07">Microsoft</label>
+                      <div class="home-pricing07">
+                        <h1 class="home-price14 price"></h1>
+                      </div>
+                    </div>
+                    <div class="home-details15">
+                      <div class="home-price15">
+                        <h3 class="home-text092 high"></h3>
+                      </div>
+                      <div class="home-market-cap07">
+                        <h3 class="home-text095 low"></h3>
+                      </div>
+                      <div class="home-total-volume07">
+                        <h3 class="home-text098 priceChange"></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <input
+                    type="text"
+                    id="MicrosoftName"
+                    required
+                    placeholder="Your Name Here"
+                    class="home-textinput06 input"
+                  />
+                  <input
+                    type="text"
+                    id="MicrosoftInput"
+                    required
+                    placeholder="Your Email Here"
+                    class="home-textinput07 input"
+                  />
+                  <select
+                    id="MicrosoftSelect"
+                    required
+                    text-align="center"
+                    class="home-select07"
+                  >
+                    <option value="NULL" selected="">
+                      Select Time Interval
+                    </option>
+                    <option value="2">2 Minutes</option>
+                    <option value="60">1 Hour</option>
+                    <option value="360">6 Hours</option>
+                    <option value="1440">24 Hours</option>
+                  </select>
+                  <button type="submit" class="home-subscribe3">
+                    <div class="home-buy6 button">
+                      <span class="home-text099">
+                        <span>Subscribe</span>
+                        <br />
+                      </span>
+                    </div>
+                  </button>
+                </div>
+              </main>
+              <main class="home-stocks-row-2">
+                <div id="stock-GOOGL" class="home-google">
+                  <div class="home-details16">
+                    <div class="home-header11">
+                      <label class="home-name08">Google</label>
+                      <div class="home-pricing08">
+                        <h1 class="home-price16 price"></h1>
+                      </div>
+                    </div>
+                    <div class="home-details17">
+                      <div class="home-price17">
+                        <h3 class="home-text104 high"></h3>
+                      </div>
+                      <div class="home-market-cap08">
+                        <h3 class="home-text107 low"></h3>
+                      </div>
+                      <div class="home-total-volume08">
+                        <h3 class="home-text110 priceChange"></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <input
+                    type="text"
+                    id="GoogleName"
+                    required
+                    placeholder="Your Name Here"
+                    class="home-textinput06 input"
+                  />
+                  <input
+                    type="text"
+                    id="GoogleInput"
+                    required
+                    placeholder="Your Email Here"
+                    class="home-textinput08 input"
+                  />
+                  <select
+                    id="GoogleSelect"
+                    required
+                    text-align="center"
+                    class="home-select08"
+                  >
+                    <option value="NULL" selected="">
+                      Select Time Interval
+                    </option>
+                    <option value="2">2 Minutes</option>
+                    <option value="60">1 Hour</option>
+                    <option value="360">6 Hours</option>
+                    <option value="1440">24 Hours</option>
+                  </select>
+                  <button type="submit" class="home-subscribe4">
+                    <div class="home-buy7 button">
+                      <span class="home-text111">
+                        <span>Subscribe</span>
+                        <br />
+                      </span>
+                    </div>
+                  </button>
+                </div>
+                <div id="stock-TSLA" class="home-tesla">
+                  <div class="home-details18">
+                    <div class="home-header12">
+                      <label class="home-name09">Tesla</label>
+                      <div class="home-pricing09">
+                        <h1 class="home-price18 price"></h1>
+                      </div>
+                    </div>
+                    <div class="home-details19">
+                      <div class="home-price19">
+                        <h3 class="home-text116 high"></h3>
+                      </div>
+                      <div class="home-market-cap09">
+                        <h3 class="home-text119 low"></h3>
+                      </div>
+                      <div class="home-total-volume09">
+                        <h3 class="home-text122 priceChange"></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <input
+                    type="text"
+                    id="TeslaName"
+                    required
+                    placeholder="Your Name Here"
+                    class="home-textinput06 input"
+                  />
+                  <input
+                    type="text"
+                    id="TeslaInput"
+                    required
+                    placeholder="Your Email Here"
+                    class="home-textinput09 input"
+                  />
+                  <select
+                    id="TeslaSelect"
+                    required
+                    text-align="center"
+                    class="home-select09"
+                  >
+                    <option value="NULL" selected="">
+                      Select Time Interval
+                    </option>
+                    <option value="2">2 Minutes</option>
+                    <option value="60">1 Hour</option>
+                    <option value="360">6 Hours</option>
+                    <option value="1440">24 Hours</option>
+                  </select>
+                  <button type="submit" class="home-subscribe5">
+                    <div class="home-buy8 button">
+                      <span class="home-text123">
+                        <span>Subscribe</span>
+                        <br />
+                      </span>
+                    </div>
+                  </button>
+                </div>
+              </main>
+            </div>
+          </main>
+        </section>
+        <section class="home-section3">
+          <header class="home-header13">
+            <h2 class="home-heading3 section-heading">
+              Sign up for a free Novu Account now!
+            </h2>
+            <img alt="image" src="./assets/novu.png" class="home-image1" />
+            <div class="home-buttons1">
+              <a
+                href="https://web.novu.co/auth/signup"
+                target="_blank"
+                rel="noreferrer noopener"
+                class="home-link1"
+              >
+                <div class="home-get-started1 button">
+                  <span class="home-text126">Signup</span>
+                </div>
+              </a>
+            </div>
+          </header>
+        </section>
+        <footer class="home-footer">
+          <section class="home-copyright">
+            <h3 class="home-text127">
+              <span>© 2023 NovuFin. Made by</span>
+              <a
+                href="https://twitter.com/RutamHere"
+                target="_blank"
+                rel="noreferrer noopener"
+                class="home-link2"
+              >
+                Rutam
+              </a>
+              <span>. All Rights Reserved.</span>
+            </h3>
+          </section>
+        </footer>
+      </div>
+    </div>
+    <script type="text/javascript" src="./scripts/data.js"></script>
+    <script type="text/javascript" src="./scripts/user.js"></script>
+    <script type="text/javascript" src="./scripts/novu.js"></script>
+  </body>
+</html>
