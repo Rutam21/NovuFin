@@ -1,5 +1,5 @@
 // Establish WebSocket connection
-const socket = new WebSocket("ws://localhost:3000");
+const socket = new WebSocket("ws://shark-app-nvoag.ondigitalocean.app");
 
 // Function to update the stock data on the webpage
 function updateStockData(stockData) {
