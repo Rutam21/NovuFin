@@ -65,7 +65,7 @@ app.use(bodyParser.json());
 
 // Function to fetch real-time stock data from the Alpha Vantage API
 async function fetchStockData() {
-  const apiKey = "BTTBYLN48568WN3R"; // Replace with your Alpha Vantage API key
+  const apiKey = process.env.ALPHA_VANTAGE_API; // Replace with your Alpha Vantage API key
   const symbols = ["MSFT", "TSLA", "META", "GOOGL"];
 
   try {
@@ -220,8 +220,9 @@ app.post("/api/subscribe", async (req, res) => {
     await novuSubscriber(subscriberId, email, firstname);
 
     // Add Subscriber to Novu Topic
-    await addToNovuTopic(subscriberId, topicKey);
-
+    if (topicKey !== null) {
+      await addToNovuTopic(subscriberId, topicKey);
+    }
     // Trigger instant notification
     await triggerNotification(subscriberId, email, coin, price, firstname);
 

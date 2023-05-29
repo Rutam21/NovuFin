@@ -55,8 +55,7 @@ function handleFormSubmit(event, coin, priceClassName) {
 
   const selectedValue = selectElement.value;
   if (selectedValue === "NULL") {
-    alert("Please Enter a Time Duration");
-    return; // Stop the form submission if no time duration is selected
+    topicKey = null;
   } else if (selectedValue === "2") {
     topicKey = `${coin}-2MIN-NOTIFIER`;
   } else if (selectedValue === "60") {
@@ -127,11 +126,18 @@ function showNotification(pair, name) {
     "script"
   );
 
-  novu.init("70HzHf7CIXoM", "#notification-bell", {
-    subscriberId: pair.subscriberId,
-    email: pair.email,
-    firstName: name,
-  });
+  novu.init(
+    "70HzHf7CIXoM",
+    {
+      unseenBadgeSelector: "#unseen-badge",
+      bellSelector: "#notification-bell",
+    },
+    {
+      subscriberId: pair.subscriberId,
+      email: pair.email,
+      firstName: name,
+    }
+  );
 }
 
 const ethSubmitButton = document.querySelector(".home-subscribe");
@@ -140,20 +146,6 @@ ethSubmitButton.addEventListener("click", function (event) {
   var isValid = validateForm("Ethereum");
   if (isValid) {
     handleFormSubmit(event, "Ethereum", ".home-price");
-    const storedJsonString = sessionStorage.getItem("Subscribers");
-    const emailSubscriberPairs = storedJsonString
-      ? JSON.parse(storedJsonString)
-      : [];
-    const email = document.getElementById("EthereumInput").value;
-    const name = document.getElementById("EthereumName").value;
-    // Find the pair with the matching email
-    const pair = emailSubscriberPairs.find((pair) => pair.email === email);
-
-    if (pair) {
-      showNotification(pair, name); // Show notification for the current subscriber
-    } else {
-      console.log("Subscriber pair not found");
-    }
   }
 });
 
@@ -163,20 +155,6 @@ btcSubmitButton.addEventListener("click", function (event) {
   var isValid = validateForm("BitCoin");
   if (isValid) {
     handleFormSubmit(event, "BitCoin", ".home-price02");
-    const storedJsonString = sessionStorage.getItem("Subscribers");
-    const emailSubscriberPairs = storedJsonString
-      ? JSON.parse(storedJsonString)
-      : [];
-    const email = document.getElementById("BitCoinInput").value;
-    const name = document.getElementById("BitCoinName").value;
-    // Find the pair with the matching email
-    const pair = emailSubscriberPairs.find((pair) => pair.email === email);
-
-    if (pair) {
-      showNotification(pair, name); // Show notification for the current subscriber
-    } else {
-      console.log("Subscriber pair not found");
-    }
   }
 });
 
@@ -186,20 +164,6 @@ dogeSubmitButton.addEventListener("click", function (event) {
   var isValid = validateForm("Doge");
   if (isValid) {
     handleFormSubmit(event, "Doge", ".home-price04");
-    const storedJsonString = sessionStorage.getItem("Subscribers");
-    const emailSubscriberPairs = storedJsonString
-      ? JSON.parse(storedJsonString)
-      : [];
-    const email = document.getElementById("DogeInput").value;
-    const name = document.getElementById("DogeName").value;
-    // Find the pair with the matching email
-    const pair = emailSubscriberPairs.find((pair) => pair.email === email);
-
-    if (pair) {
-      showNotification(pair, name); // Show notification for the current subscriber
-    } else {
-      console.log("Subscriber pair not found");
-    }
   }
 });
 
@@ -209,20 +173,6 @@ solanaSubmitButton.addEventListener("click", function (event) {
   var isValid = validateForm("Solana");
   if (isValid) {
     handleFormSubmit(event, "Solana", ".home-price06");
-    const storedJsonString = sessionStorage.getItem("Subscribers");
-    const emailSubscriberPairs = storedJsonString
-      ? JSON.parse(storedJsonString)
-      : [];
-    const email = document.getElementById("SolanaInput").value;
-    const name = document.getElementById("SolanaName").value;
-    // Find the pair with the matching email
-    const pair = emailSubscriberPairs.find((pair) => pair.email === email);
-
-    if (pair) {
-      showNotification(pair, name); // Show notification for the current subscriber
-    } else {
-      console.log("Subscriber pair not found");
-    }
   }
 });
 
@@ -232,20 +182,6 @@ bnbSubmitButton.addEventListener("click", function (event) {
   var isValid = validateForm("Binance");
   if (isValid) {
     handleFormSubmit(event, "Binance", ".home-price08");
-    const storedJsonString = sessionStorage.getItem("Subscribers");
-    const emailSubscriberPairs = storedJsonString
-      ? JSON.parse(storedJsonString)
-      : [];
-    const email = document.getElementById("BinanceInput").value;
-    const name = document.getElementById("BinanceName").value;
-    // Find the pair with the matching email
-    const pair = emailSubscriberPairs.find((pair) => pair.email === email);
-
-    if (pair) {
-      showNotification(pair, name); // Show notification for the current subscriber
-    } else {
-      console.log("Subscriber pair not found");
-    }
   }
 });
 
@@ -255,20 +191,6 @@ aaveSubmitButton.addEventListener("click", function (event) {
   var isValid = validateForm("Aave");
   if (isValid) {
     handleFormSubmit(event, "Aave", ".home-price10");
-    const storedJsonString = sessionStorage.getItem("Subscribers");
-    const emailSubscriberPairs = storedJsonString
-      ? JSON.parse(storedJsonString)
-      : [];
-    const email = document.getElementById("AaveInput").value;
-    const name = document.getElementById("AaveName").value;
-    // Find the pair with the matching email
-    const pair = emailSubscriberPairs.find((pair) => pair.email === email);
-
-    if (pair) {
-      showNotification(pair, name); // Show notification for the current subscriber
-    } else {
-      console.log("Subscriber pair not found");
-    }
   }
 });
 
@@ -278,20 +200,6 @@ metaSubmitButton.addEventListener("click", function (event) {
   var isValid = validateForm("Meta");
   if (isValid) {
     handleFormSubmit(event, "Meta", ".home-price12");
-    const storedJsonString = sessionStorage.getItem("Subscribers");
-    const emailSubscriberPairs = storedJsonString
-      ? JSON.parse(storedJsonString)
-      : [];
-    const email = document.getElementById("MetaInput").value;
-    const name = document.getElementById("MetaName").value;
-    // Find the pair with the matching email
-    const pair = emailSubscriberPairs.find((pair) => pair.email === email);
-
-    if (pair) {
-      showNotification(pair, name); // Show notification for the current subscriber
-    } else {
-      console.log("Subscriber pair not found");
-    }
   }
 });
 
@@ -301,20 +209,6 @@ msftSubmitButton.addEventListener("click", function (event) {
   var isValid = validateForm("Microsoft");
   if (isValid) {
     handleFormSubmit(event, "Microsoft", ".home-price14");
-    const storedJsonString = sessionStorage.getItem("Subscribers");
-    const emailSubscriberPairs = storedJsonString
-      ? JSON.parse(storedJsonString)
-      : [];
-    const email = document.getElementById("MicrosoftInput").value;
-    const name = document.getElementById("MicrosoftName").value;
-    // Find the pair with the matching email
-    const pair = emailSubscriberPairs.find((pair) => pair.email === email);
-
-    if (pair) {
-      showNotification(pair, name); // Show notification for the current subscriber
-    } else {
-      console.log("Subscriber pair not found");
-    }
   }
 });
 
@@ -324,20 +218,6 @@ googlSubmitButton.addEventListener("click", function (event) {
   var isValid = validateForm("Google");
   if (isValid) {
     handleFormSubmit(event, "Google", ".home-price16");
-    const storedJsonString = sessionStorage.getItem("Subscribers");
-    const emailSubscriberPairs = storedJsonString
-      ? JSON.parse(storedJsonString)
-      : [];
-    const email = document.getElementById("GoogleInput").value;
-    const name = document.getElementById("GoogleName").value;
-    // Find the pair with the matching email
-    const pair = emailSubscriberPairs.find((pair) => pair.email === email);
-
-    if (pair) {
-      showNotification(pair, name); // Show notification for the current subscriber
-    } else {
-      console.log("Subscriber pair not found");
-    }
   }
 });
 
@@ -347,19 +227,5 @@ tslaSubmitButton.addEventListener("click", function (event) {
   var isValid = validateForm("Tesla");
   if (isValid) {
     handleFormSubmit(event, "Tesla", ".home-price18");
-    const storedJsonString = sessionStorage.getItem("Subscribers");
-    const emailSubscriberPairs = storedJsonString
-      ? JSON.parse(storedJsonString)
-      : [];
-    const email = document.getElementById("TeslaInput").value;
-    const name = document.getElementById("TeslaName").value;
-    // Find the pair with the matching email
-    const pair = emailSubscriberPairs.find((pair) => pair.email === email);
-
-    if (pair) {
-      showNotification(pair, name); // Show notification for the current subscriber
-    } else {
-      console.log("Subscriber pair not found");
-    }
   }
 });
