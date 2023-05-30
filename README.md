@@ -99,6 +99,6 @@ This will start the app at **localhost:3000**.
 
 ## 
 
-                                                      Made with 💖 For
+                                                     Made with 💖 For
 ![Novu Hackathon](https://github.com/Rutam21/NovuFin/assets/47860497/ad8709da-66e0-4810-a546-ceaaf8d0dc62)
 
