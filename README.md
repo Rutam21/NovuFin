@@ -27,7 +27,7 @@ Live Deployment URL: https://shark-app-nvoag.ondigitalocean.app/
    - 1 Hour (Both In-App and Email)
    - 6 Hours (Both In-App and Email)
    - 24 Hours (Both In-App and Email)
-- The In-App notification gets set for the Primary User only i.e., always use the same email that you entered in the popup when you opned the page to subscribe, if you wish to see the in-app notifications in the webpage. However, one can use different emails to subscribe and the app creates and assigns them as unique Subscribers and they will receive their respective subscription emails.
+- The In-App notification gets set for the Primary User only i.e., if you wish to see the in-app notifications in the webpage, then always use the same email that you entered in the popup when you opened the page to subscribe. However, one can use different emails to subscribe and the app creates and assigns them as unique Subscribers and they will receive their respective subscription emails.
 
 ## App Workflow
 
@@ -99,6 +99,6 @@ This will start the app at **localhost:3000**.
 
 ## 
 
-                                                     Made with 💖 For
+                                                      Made with 💖 For
 ![Novu Hackathon](https://github.com/Rutam21/NovuFin/assets/47860497/ad8709da-66e0-4810-a546-ceaaf8d0dc62)
 
